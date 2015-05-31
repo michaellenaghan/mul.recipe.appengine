@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 
 
+"""
+mul.recipe.appengine.sdk
+"""
+
+
 import glob
 import logging
 import os
@@ -10,6 +15,12 @@ import zc.buildout
 import zc.buildout.buildout
 import zc.buildout.download
 import zipfile
+
+
+# pylint: disable=too-many-branches
+# pylint: disable=too-many-instance-attributes
+# pylint: disable=too-many-locals
+# pylint: disable=too-many-statements
 
 
 class Recipe(object):
