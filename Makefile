@@ -35,7 +35,7 @@ clean-test:
 	rm -fr htmlcov/
 
 lint:
-	pylint mul.recipe.appengine tests
+	flake8 mul.recipe.appengine tests
 
 test:
 	python setup.py test

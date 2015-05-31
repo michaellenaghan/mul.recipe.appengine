@@ -11,10 +11,10 @@ except ImportError:
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-with open('./mul/recipe/appengine/lib.rst') as libdoc_file:
+with open('mul/recipe/appengine/lib.rst') as libdoc_file:
     libdoc = libdoc_file.read()
 
-with open('./mul/recipe/appengine/sdk.rst') as sdkdoc_file:
+with open('mul/recipe/appengine/sdk.rst') as sdkdoc_file:
     sdkdoc = sdkdoc_file.read()
 
 with open('HISTORY.rst') as history_file:
@@ -40,11 +40,7 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
     ],
     description='Buildout recipes for App Engine.',
     entry_points = {
@@ -64,6 +60,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/michaellenaghan/mul.recipe.appengine',
-    version='0.2.0',
+    version='0.3.0',
     zip_safe=False,
 )
