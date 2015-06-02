@@ -66,7 +66,7 @@ Ready to contribute? Here's how to set up `mul.recipe.appengine` for local devel
 
     $ mkvirtualenv mul.recipe.appengine
     $ cd mul.recipe.appengine/
-    $ python setup.py develop
+    $ ./bin/python setup.py develop
 
 4. Create a branch for local development::
 
@@ -99,13 +99,6 @@ Before you submit a pull request, check that it meets these guidelines:
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
    feature to the list in README.rst.
-3. The pull request should work for Python 2.6, 2.7, 3.3, and 3.4, and for PyPy. Check
+3. The pull request should work for all supported Python versions. Check
    https://travis-ci.org/michaellenaghan/mul.recipe.appengine/pull_requests
-   and make sure that the tests pass for all supported Python versions.
-
-Tips
-----
-
-To run a subset of tests::
-
-    $ python -m unittest tests.test_mul.recipe.appengine
+   and make sure that the tests pass.

@@ -8,4 +8,4 @@ mul.recipe.appengine
 
 __author__ = 'Michael Lenaghan'
 __email__ = 'metamul -@- gmail.com'
-__version__ = '0.3.0'
+__version__ = '0.4.0'
