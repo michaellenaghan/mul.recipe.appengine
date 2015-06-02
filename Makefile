@@ -1,20 +1,21 @@
-.PHONY: clean-pyc clean-build docs clean
+.PHONY: clean clean-build clean-docs clean-pyc docs
 
 help:
-	@echo "clean - remove all build, test, coverage and Python artifacts"
+	@echo "clean - remove all coverage, build, docs, test and Python artifacts"
 	@echo "clean-build - remove build artifacts"
+	@echo "clean-docs - remove docs artifacts"
 	@echo "clean-pyc - remove Python file artifacts"
 	@echo "clean-test - remove test and coverage artifacts"
+	@echo "coverage - check code coverage quickly with the default Python"
+	@echo "dist - package"
+	@echo "docs - generate Sphinx HTML documentation, including API docs"
+	@echo "install - install the package to the active Python's site-packages"
 	@echo "lint - check style with flake8"
+	@echo "release - package and upload a release"
 	@echo "test - run tests quickly with the default Python"
 	@echo "test-all - run tests on every Python version with tox"
-	@echo "coverage - check code coverage quickly with the default Python"
-	@echo "docs - generate Sphinx HTML documentation, including API docs"
-	@echo "release - package and upload a release"
-	@echo "dist - package"
-	@echo "install - install the package to the active Python's site-packages"
 
-clean: clean-build clean-pyc clean-test
+clean: clean-build clean-docs clean-pyc clean-test
 
 clean-build:
 	rm -fr build/
@@ -22,6 +23,12 @@ clean-build:
 	rm -fr .eggs/
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
+
+clean-docs:
+	rm -f docs/mul.rst
+	rm -f docs/mul.recipe.rst
+	rm -f docs/mul.recipe.appengine.rst
+	rm -f docs/modules.rst
 
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
@@ -35,7 +42,7 @@ clean-test:
 	rm -fr htmlcov/
 
 lint:
-	flake8 mul.recipe.appengine tests
+	flake8 -v mul tests
 
 test:
 	python setup.py test
@@ -49,10 +56,8 @@ coverage:
 	coverage html
 	open htmlcov/index.html
 
-docs:
-	rm -f docs/mul.recipe.appengine.rst
-	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ mul.recipe.appengine
+docs: clean-docs
+	sphinx-apidoc -o docs/ mul
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	open docs/_build/html/index.html

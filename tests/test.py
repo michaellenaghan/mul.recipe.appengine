@@ -12,19 +12,17 @@ import os
 import unittest
 
 
-_THERE = os.path.join('..', 'mul', 'recipe', 'appengine')
+_README_RST = os.path.join('..', 'README.rst')
 
-_LIB_RST = os.path.join(_THERE, 'lib.rst')
-_SDK_RST = os.path.join(_THERE, 'sdk.rst')
+
+def test_suite():
+    return doctest.DocFileSuite(_README_RST)
 
 
 def load_tests(loader, tests, pattern):
     # pylint: disable=unused-argument
-    tests.addTests(
-        doctest.DocFileSuite(_LIB_RST)
-    )
-    tests.addTests(
-        doctest.DocFileSuite(_SDK_RST)
+    tests.addTest(
+        test_suite()
     )
     return tests
 
